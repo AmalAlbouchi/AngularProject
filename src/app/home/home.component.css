@@ -1,9 +1,10 @@
 .card{
-    width: 30%;
+    width: 40%;
     margin: auto;
-}
+    padding-top: 2% 
+  }
 p{
-font-size: 20px;
+font-size: 25px;
 margin: 5% 10% 5% 10%
 }
 @font-face {

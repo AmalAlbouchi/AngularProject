@@ -9,7 +9,7 @@
 
 
 
-<!--ng-container *ngIf="!show">
+<ng-container *ngIf="!show">
 <app-home></app-home>
 <div class="form-group">
     <button (click)="toggle()" id="bt" type="button" class="btn btn-lg btn-outline-info">Envoyer votre mandat</button>
@@ -18,7 +18,7 @@
 
 <ng-container *ngIf="show">
 <app-form></app-form>
-</ng-container-->
+</ng-container>
 
 <!--ng-container *ngIf="!show">
         <app-server [model]="model"></app-server>
@@ -33,27 +33,3 @@
 
 <!--app-server [model]="model"></app-server>
 <app-servers [model]="model"></app-servers-->
-
-<app-form></app-form>
-
-<!--div style="text-align:left;width:500px;">
-    <h1>
-        {{ title }}!
-    </h1>
-
-    <table *ngIf="arrBirds">
-        
-        <tr>
-            <th>ID</th>
-                <th>Name of Bird</th>
-                    <th>Type of Bird</th>
-        </tr>
-
-       
-        <tr *ngFor="let bird of arrBirds">
-            <td>{{bird.ID}}</td>
-                <td>{{bird.Name}}</td>
-                    <td>{{bird.Type}}</td>
-        </tr>
-    </table>
-</div-->

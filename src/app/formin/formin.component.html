@@ -1,0 +1,235 @@
+<ng-container *ngIf="!show">
+
+<div style="margin: 5%;">
+	<h3 class="card-title mt-3 text-center">Envoyer votre mandat</h3>
+    <p class="card-text text-danger" style="text-align: center; margin: 3% 0% 1% 0%;">Prière de remplir le formulaire correctement et en langue française</p>
+    <p class="card-text" style="text-align: center;">
+Le paiement de votre mandat ne peut être effectué qu'après 48 heures jours ouvrables <br>
+Les coordonnées des clients sont utilisées exclusivement pour les besoins des mandats et ne sont nullement communiquées à des tiers. </p>
+<br>
+	
+	<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+	<!---->
+
+
+<div class="flex-container">
+			<div class="card formin">
+					<h4 class="centered" style="margin-top: 5%;">Expéditeur</h4>
+					<hr>
+					<div class="card-body" id="hei">
+					  
+
+	    <div class="form-group input-group">
+    		<div class="input-group-prepend">
+		    	<span class="input-group-text"> <i class="fas fa-venus-mars"></i> </span>
+			</div>
+		<select class="form-control" name="gender1" [(ngModel)]="g1" required>
+			<option value="Monsieur">Monsieur</option>
+			<option value="Madame">Madame</option>
+			<option value="Mademoiselle">Mademoiselle</option>
+		</select>
+	</div>
+
+		<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="far fa-user"></i> </span>
+		 </div>
+		<input name="last_name1" class="form-control" placeholder="Nom *" type="text" [(ngModel)]="name1" required minlength="3"
+		ngbPopover="Entrez un nom valide (min 3 caractères)" data-trigger="focus" placement="top"
+		>
+	</div>
+	
+		<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+		<input name="first_name1" class="form-control" placeholder="Prénom *" type="text" [(ngModel)]="fname1" required minlength="3"
+		ngbPopover="Entrez un prénom valide (min 3 caractères)" data-trigger="focus" placement="top"
+		>
+	</div>
+	
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fas fa-location-arrow"></i></span>
+		 </div>
+		<input name="address1" class="form-control" placeholder="Rue et N° *" type="text" [(ngModel)]="add1" required minlength="10"
+		ngbPopover="Entrez une adresse valide (min 10 caractères)" data-trigger="focus" placement="top"
+		>
+    </div>
+
+<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fas fa-box"></i></span>
+		 </div>
+		<input name="code1" class="form-control" placeholder="Code Postal *" type="number" [(ngModel)]="cp1" required maxlength="4"
+		ngbPopover="Entrez un code postal valide (4 chiffres)" data-trigger="focus" placement="top"
+		oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+		>
+	</div>
+	
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i></span>
+		</div>
+		<select class="form-control" name="ville1" ngModel required
+		ngbPopover="Choisissez votre gouvernorat" data-trigger="focus" placement="top"
+		>
+			<option value="">Sélectionner votre gouvernorat *</option>
+			<option value="ar">Ariana</option>
+			<option value="bj">Beja</option>
+			<option value="ba">Ben Arous</option>
+		</select>
+    	   </div>
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+		<input name="email" class="form-control" placeholder="E-mail" type="email" [(ngModel)]="em" email
+		ngbPopover="Entrez une address e-mail valide" data-trigger="focus" placement="top"
+		>
+    </div>
+	
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		</div>
+		<input name="phone1" class="form-control" placeholder="Gsm *" type="number" [(ngModel)]="num1" required maxlength="8"
+		ngbPopover="Entrez un Gsm valide" data-trigger="focus" placement="top"
+		oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+		>
+	</div>
+	
+</div>
+</div>
+
+
+
+<div class="card formin">
+		<h4 class="centered" style="margin-top: 5%;">Bénéficiaire</h4>
+		<hr>
+		<div class="card-body">
+		  
+
+<div class="form-group input-group">
+<div class="input-group-prepend">
+	<span class="input-group-text"> <i class="fas fa-venus-mars"></i> </span>
+</div>
+<select class="form-control" name="gender2" [(ngModel)]="g2" required>
+<option value="Monsieur">Monsieur</option>
+<option value="Madame">Madame</option>
+<option value="Mademoiselle">Mademoiselle</option>
+</select>
+</div>
+
+<div class="form-group input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"> <i class="far fa-user"></i> </span>
+</div>
+<input name="last_name2" class="form-control" placeholder="Nom *" type="text" [(ngModel)]="name2" required minlength="3"
+		ngbPopover="Entrez un nom valide (min 3 caractères)" data-trigger="focus" placement="top"
+		>
+	</div>
+
+<div class="form-group input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+</div>
+<input name="first_name2" class="form-control" placeholder="Prénom *" type="text" [(ngModel)]="fname2" required minlength="3"
+		ngbPopover="Entrez un prénom valide (min 3 caractères)" data-trigger="focus" placement="top"
+		></div>
+
+<div class="form-group input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"> <i class="fas fa-location-arrow"></i></span>
+</div>
+<input name="address2" class="form-control" placeholder="Rue et N° *" type="text" [(ngModel)]="add2" required minlength="10"
+ngbPopover="Entrez une adresse valide (min 10 caractères)" data-trigger="focus" placement="top"
+></div>
+
+<app-reading></app-reading>
+
+
+<div class="form-group input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+</div>
+<input name="phone2" class="form-control" placeholder="Gsm *" [(ngModel)]="num2" required maxlength="8" type="number"
+ngbPopover="Entrez un Gsm valide" data-trigger="focus" placement="top"
+oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+>
+</div> <!-- form-group// -->
+
+<div class="form-group input-group">
+		<div class="input-group-prepend">
+		<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		</div>
+		<input name="montant" class="form-control" placeholder="Montant * (exemple: 20.500 DT)" [(ngModel)]="montant" required type="number" maxlength="20"
+		ngbPopover="Entrez un Montant valide" data-trigger="focus" placement="top"
+		oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+		</div>
+
+
+</div>
+</div>
+</div><!--flex-->
+
+
+                                        
+    <!--div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+    </div>    
+    <p class="text-center">Have an account? <a href="/projectphp/pages/loginform.php">Log In</a> </p-->
+<p class="text-muted centered" id='hei2'>Les informations marquées avec * sont obligatoires</p>
+	
+<div class="form-group">
+        <button type="submit" class="btn btn-success btn-block" id="wid"
+		[disabled]="f.valid"
+		(click)="valid()"
+		> Valider </button>
+	</div>
+	<div class="form-group">
+			<button type="reset" class="btn btn-secondary btn-block" id="wid"> Réinitialiser </button>
+		</div>
+
+
+
+</form>
+</div>
+</ng-container>
+
+<ng-container *ngIf="show && conf">
+						<div style="margin:5%">
+								<h1>Vos Informations</h1>
+								<hr>
+								<div class="flex-container">
+								<div class="result">
+									<h2>Informations de l'éxpéditeur</h2>
+									<br>
+								<p>{{g1}} {{fname1}} {{name1}}</p>
+								<p>Rue et N° : {{add1}}</p>
+								<p>Code Postal : {{cp1}}</p>
+								<p>E-mail : {{em}}</p>
+								<p>Gsm : {{num1}}</p>
+
+							</div>
+							<div class="result">
+									<h2>Informations du bénéficiaire</h2>
+									<br>
+									<p>{{g2}} {{fname2}} {{name2}}</p>
+									<p>Rue et N° : {{add2}}</p>
+									<p>Code Postal : {{cp2}}</p>
+									<p>Gsm : {{num2}}</p>
+									<p>Montant : {{montant}}</p>
+							</div>
+						</div>
+						<div class="centered">
+						<button (click)="return()" id="bt" type="button" class="btn btn-danger" style="margin-right: 3%">Annuler</button>
+						<button (click)="confirm()" type="button" class="btn btn-success">Confirmer</button>
+						</div>
+					</div>
+</ng-container>
+
+<div *ngIf="!conf">
+	<p>Merci</p>
+</div>

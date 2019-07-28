@@ -1,0 +1,40 @@
+<div class="container" style="height: 220px; padding:0">
+
+<div class="form-group input-group">
+  <div class="input-group-prepend">
+  <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i></span>
+  </div>
+  <select class="form-control" id="vil" [(ngModel)]="SVille" (change)="onch(SVille)">
+      <option [ngValue]="null">Sélectionner le gouvernorat *</option>
+    <option *ngFor="let item of myData" [ngValue]="item.ville">{{item.ville}}</option>
+</select></div>
+
+
+
+<div class="form-group input-group" id="deldiv">
+    <div class="input-group-prepend">
+    <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i></span>
+    </div>
+<select class="form-control" id="del" [(ngModel)]="SDel" (change)="onch(SDel)">
+    <option [ngValue]="null">Sélectionner la délégation *</option>
+    <option *ngFor="let item of meinData" [ngValue]="item.delegation">{{item.delegation}}</option>
+</select></div>
+
+<div class="form-group input-group" id="locdiv">
+    <div class="input-group-prepend">
+    <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i></span>
+    </div>
+<select class="form-control" id="loc" [(ngModel)]="SLoc" (change)="onch(SLoc)">
+    <option [ngValue]="null">Sélectionner la localité *</option>
+    <option *ngFor="let item of meinData" [ngValue]="item.localite">{{item.localite}}</option>
+</select></div>
+
+<div class="form-group input-group" id="copdiv">
+    <div class="input-group-prepend">
+    <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i></span>
+    </div>
+<select class="form-control" id="cop">
+    <option *ngFor="let item of meinData" [ngValue]="item.code_postal">{{item.code_postal}}</option>
+</select></div>
+
+         </div>

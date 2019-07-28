@@ -1,0 +1,36 @@
+.card{
+    width: 30%;
+    margin: auto;
+}
+p{
+font-size: 20px;
+margin: 5% 10% 5% 10%
+}
+@font-face {
+    font-family: Raleway-bold;
+    src: url(font/raleway/Raleway-Bold.ttf);
+  }
+  @font-face {
+    font-family: Raleway;
+    src: url(./font/raleway/Raleway-Light.ttf);
+  }
+  @font-face {
+    font-family: Raleway-regular;
+    src: url(./font/raleway/Raleway-Regular.ttf);
+  }
+  h3{
+    font-family: Raleway-bold;
+    margin-left: 5%
+   }
+   .card{
+     border-radius: 10%
+   }
+
+   #logo{
+    background-image: url(logo.png);
+    width: auto;
+    height: 180px;
+    background-repeat: no-repeat;
+    background-size: auto 180px;
+    margin-left: 5%;
+}

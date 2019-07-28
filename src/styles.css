@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Raleway-bold;
+    src: url(app/form/font/raleway/Raleway-Bold.ttf);
+  }
+  @font-face {
+    font-family: Raleway;
+    src: url(app/form/font/raleway/Raleway-Light.ttf);
+  }
+  * {
+    font-family: Raleway;
+   }

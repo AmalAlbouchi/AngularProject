@@ -1,0 +1,74 @@
+button{
+    margin-top:20px;
+}
+.btn{
+    font-size: 20px;
+    font-weight: bold;
+}
+.centered{
+    text-align: center;
+   }
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .rd{
+    border-radius: 10%    
+  }
+  .flex-container > div.formin {
+    background-color: #f1f1f1;
+    width: 450px;
+    height: auto;
+    margin: auto;
+    border-radius: 10% 
+  }
+  .result{
+    width: 450px;
+    height: auto;
+    margin: auto;
+    border-radius: 10% 
+  }
+  .rdd{
+    border-radius: 10%
+  }
+  #hei {
+      margin-top: 13%;
+      margin-bottom: 12%
+  }
+#hei2{
+    margin: 5% 0% 3% 0%;
+}
+#wid{
+    width: auto;
+    margin: auto;
+}
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
+    border-color: rgb(233, 83, 45)!important;
+    box-shadow: 0 0 6px rgb(248, 207, 183)!important;
+}
+@font-face {
+    font-family: Raleway-bold;
+    src: url(font/raleway/Raleway-Bold.ttf);
+  }
+  @font-face {
+    font-family: Raleway;
+    src: url(./font/raleway/Raleway-Light.ttf);
+  }
+  @font-face {
+    font-family: Raleway-regular;
+    src: url(./font/raleway/Raleway-Regular.ttf);
+  }
+   h5, h4, h3{
+    font-family: Raleway-bold;
+   }
+   p.card-text{
+    font-family: Raleway-regular;
+    font-size: 18px;
+    }
+    p.card-text, .card.title{
+        margin: auto;
+    }
+  p.text-danger{
+   font-size: 20px;
+   }

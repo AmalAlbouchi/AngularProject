@@ -27,6 +27,7 @@ button{
     width: 450px;
     height: auto;
     margin: auto;
+    margin-top:10px;
     border-radius: 10% 
   }
   .rdd{
@@ -59,7 +60,7 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
     font-family: Raleway-regular;
     src: url(./font/raleway/Raleway-Regular.ttf);
   }
-   h5, h4, h3{
+   h4, h3{
     font-family: Raleway-bold;
    }
    p.card-text{
@@ -72,3 +73,7 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
   p.text-danger{
    font-size: 20px;
    }
+b{
+  float: left;
+  margin-right: 10px;
+}

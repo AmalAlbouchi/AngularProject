@@ -12,6 +12,7 @@ import { ForminComponent } from './formin/formin.component';
 import { HomeComponent } from './home/home.component';
 import { ReadingComponent } from './reading/reading.component';
 import { ResultComponent } from './result/result.component';
+import { ReadingGComponent } from './readingG/readingG.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ResultComponent } from './result/result.component';
     ForminComponent,
     HomeComponent,
     ReadingComponent,
-    ResultComponent
+    ResultComponent,
+    ReadingGComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as $ from 'jquery';
@@ -12,11 +12,19 @@ import * as $ from 'jquery';
 
 export class ReadingComponent implements OnInit {
 
-SVille = null;
-SDel = null;
-SLoc = null;
+@Input() SVille = null;
+@Input() SDel = null;
+@Input() SLoc = null;
+@Input() SCop = null;
+
+/*SVille = this.SV;
+SDel = this.SD;
+SLoc = this.SL;
+SCop = this.SC;*/
+
+
 myData: any[] = [];
-meinData: any[] = [];
+@Input() meinData: any[] = [];
 private jsonURL = 'assets/villes.json';
 
  constructor(private http: HttpClient) {
@@ -25,12 +33,17 @@ private jsonURL = 'assets/villes.json';
    });
  } // constructor
 
- onch(SVille: string) {
+
+ @Output() messageVille = new EventEmitter<string>();
+ @Output() messageDel = new EventEmitter<string>();
+ @Output() messageLoc = new EventEmitter<string>();
+ @Output() messageCop = new EventEmitter<string>();
+
+ onchV(message: string) {
   this.meinData = this.myData.map(element => {
-    if (element.ville == this.SVille && element.delegation == this.SDel && element.localite == this.SLoc
-      || element.ville == this.SVille && element.delegation == this.SDel && this.SLoc == null
-      || element.ville == this.SVille && this.SDel == null && this.SLoc == null) {
-      return {
+    if (element.ville == this.SVille) {
+        this.messageVille.emit(message);
+        return {
     ville: element.ville,
     delegation: element.delegation,
     localite: element.localite,
@@ -43,6 +56,44 @@ private jsonURL = 'assets/villes.json';
   });
  }
 
+ onchD(message: string) {
+  this.meinData = this.myData.map(element => {
+    if (element.ville == this.SVille && element.delegation == this.SDel) {
+        this.messageDel.emit(message);
+        return {
+    ville: element.ville,
+    delegation: element.delegation,
+    localite: element.localite,
+    code_postal: element.code_postal
+    };
+  }
+    });
+  this.meinData = this.meinData.filter(el => {
+    return el != null;
+  });
+ }
+
+ onchL(message: string) {
+  this.meinData = this.myData.map(element => {
+    if (element.ville == this.SVille && element.delegation == this.SDel && element.localite == this.SLoc) {
+        this.messageLoc.emit(message);
+        return {
+    ville: element.ville,
+    delegation: element.delegation,
+    localite: element.localite,
+    code_postal: element.code_postal
+    };
+  }
+    });
+  this.meinData = this.meinData.filter(el => {
+    return el != null;
+  });
+ }
+
+ onchC(message: string) {
+    this.messageCop.emit(message);
+ }
+
  public getJSON(): Observable<any> {
    return this.http.get(this.jsonURL);
  }
@@ -53,15 +104,15 @@ private jsonURL = 'assets/villes.json';
   $('#locdiv').hide();
   $('#copdiv').hide();
 
-  $('#vil').change(function() {
+  $('#vil').click(function() {
   $('#deldiv').show();
   });
 
-  $('#del').change(function() {
+  $('#del').click(function() {
   $('#locdiv').show();
   });
 
-  $('#loc').change(function() {
+  $('#loc').click(function() {
   $('#copdiv').show();
   });
 

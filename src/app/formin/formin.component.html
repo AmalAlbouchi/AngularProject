@@ -1,4 +1,5 @@
-<ng-container *ngIf="!show">
+<ng-container>
+<!--*ngIf="!show"-->
 
 <div style="margin: 5%;">
 	<h3 class="card-title mt-3 text-center">Envoyer votre mandat</h3>
@@ -67,19 +68,8 @@ Les coordonnées des clients sont utilisées exclusivement pour les besoins des 
 		>
 	</div>
 	
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i></span>
-		</div>
-		<select class="form-control" name="ville1" ngModel required
-		ngbPopover="Choisissez votre gouvernorat" data-trigger="focus" placement="top"
-		>
-			<option value="">Sélectionner votre gouvernorat *</option>
-			<option value="ar">Ariana</option>
-			<option value="bj">Beja</option>
-			<option value="ba">Ben Arous</option>
-		</select>
-    	   </div>
+		   
+		   <app-readingg (messageVilles)="getVilles($event)" ></app-readingg>
 
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -147,7 +137,11 @@ Les coordonnées des clients sont utilisées exclusivement pour les besoins des 
 ngbPopover="Entrez une adresse valide (min 10 caractères)" data-trigger="focus" placement="top"
 ></div>
 
-<app-reading></app-reading>
+<app-reading  	(messageVille)="getVille($event)" (messageDel)="getDel($event)"
+				(messageLoc)="getLoc($event)" (messageCop)="getCop($event)"
+				[SVille]="messageToSendP" [SDel]="messageToSendP"
+				[SLoc]="messageToSendP" [SCop]="messageToSendP"
+				[meinData]="mData"></app-reading>
 
 
 <div class="form-group input-group">
@@ -188,9 +182,9 @@ oninput="javascript: if (this.value.length > this.maxLength) this.value = this.v
 		(click)="valid()"
 		> Valider </button>
 	</div>
-	<div class="form-group">
-			<button type="reset" class="btn btn-secondary btn-block" id="wid"> Réinitialiser </button>
-		</div>
+	<!--div class="form-group">
+			<button type="reset" class="btn btn-secondary btn-block" id="wid" (click)="hideAll()"> Réinitialiser </button>
+		</div-->
 
 
 
@@ -206,22 +200,25 @@ oninput="javascript: if (this.value.length > this.maxLength) this.value = this.v
 								<div class="result">
 									<h2>Informations de l'éxpéditeur</h2>
 									<br>
-								<p>{{g1}} {{fname1}} {{name1}}</p>
-								<p>Rue et N° : {{add1}}</p>
-								<p>Code Postal : {{cp1}}</p>
-								<p>E-mail : {{em}}</p>
-								<p>Gsm : {{num1}}</p>
-
+								<h5>{{g1}} {{fname1}} {{name1}}</h5><br>
+								<b>Rue et N° :</b><p> {{add1}}</p>
+								<b>Code Postal : </b><p> {{cp1}}</p>
+								<b>Ville : </b><p> {{receivedVilles}}</p>
+								<b>E-mail : </b><p>{{em}}</p>
+								<b>Gsm : </b><p>{{num1}}</p>
 							</div>
 							<div class="result">
 									<h2>Informations du bénéficiaire</h2>
 									<br>
-									<p>{{g2}} {{fname2}} {{name2}}</p>
-									<p>Rue et N° : {{add2}}</p>
-									<p>Code Postal : {{cp2}}</p>
-									<p>Gsm : {{num2}}</p>
-									<p>Montant : {{montant}}</p>
-							</div>
+									<h5>{{g2}} {{fname2}} {{name2}}</h5><br>
+									<b>Rue et N° :</b><p> {{add2}}</p>
+									<b>Ville : </b><p> {{receivedVille}}</p>
+									<b>Delegation : </b><p> {{receivedDel}}</p>
+									<b>Localité : </b><p> {{receivedLoc}}</p>
+									<b>Code postal : </b><p> {{receivedCop}}</p>
+									<b>Gsm : </b><p> {{num2}}</p>
+									<b>Montant : </b><p> {{montant}}</p>
+								</div>
 						</div>
 						<div class="centered">
 						<button (click)="return()" id="bt" type="button" class="btn btn-danger" style="margin-right: 3%">Annuler</button>
@@ -231,5 +228,9 @@ oninput="javascript: if (this.value.length > this.maxLength) this.value = this.v
 </ng-container>
 
 <div *ngIf="!conf">
-	<p>Merci</p>
+	<h3 class="centered" style="margin:5%">Mandat envoyé avec succés</h3>
 </div>
+
+
+<!--button (click)="gohome()">Page index</button>
+<app-home *ngIf="home"></app-home-->

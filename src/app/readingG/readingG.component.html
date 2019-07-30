@@ -1,0 +1,12 @@
+<div class="container" style="padding:0">
+
+<div class="form-group input-group">
+  <div class="input-group-prepend">
+  <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i></span>
+  </div>
+  <select class="form-control" [(ngModel)]="SVille" (change)="onch(SVille)">
+      <option [ngValue]="null">Sélectionner le gouvernorat *</option>
+    <option *ngFor="let item of myData" [ngValue]="item.ville">{{item.ville}}</option>
+</select></div>
+
+         </div>
